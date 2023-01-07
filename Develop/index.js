@@ -1,3 +1,4 @@
+//https://github.com/mmeii/9-good-readme-generator
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
@@ -76,15 +77,21 @@ const questions = [
 // );
 
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-inquirer.prompt(questions).then(answers=>{
-    const filename=answers.title +".json"
-    fs.writeFile(filename,JSON.stringify(answers,null, '\t'), (err)=>{
-        err?console.error(err): console.log("success!")
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, function (err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('README file successfully created!');
+        }
     })
-})
+};
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions).then(function (data) {
+        writeToFile("README.md", generateMarkdown(data));
+    })
+};
 
 // Function call to initialize app
 init();
