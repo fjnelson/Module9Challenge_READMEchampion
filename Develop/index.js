@@ -1,9 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const fs = require('fs');
 // TODO: Create an array of questions for user input
-const questions = [];
-inquirer
-  .prompt([
+const questions = [
     {
       type: 'input',
       message: 'What is the project title?  This should be unique to your project.',
@@ -59,10 +58,31 @@ inquirer
         message: 'Provide examples on how to test your application.',
         name: 'tests',
       },
-  ])
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+];
+  //The && then doesnt work yet, need to troubleshoot
+//   .then((response) =>
+//   response.title != ''
+//     ? console.log('Success!')
+//     : console.log('You need to add a title') &&
+//     response.description != ''
+//     ? console.log('Success!')
+//     : console.log('You need to add a description') &&
+//     response.contents != ''
+//     ? console.log('Success!')
+//     : console.log('You need to add contents') &&
+//     response.installation != ''
+//     ? console.log('Success!')
+//     : console.log('You need to add installation instructions')
+// );
 
+// TODO: Create a function to write README file
+// function writeToFile(fileName, data) {}
+inquirer.prompt(questions).then(answers=>{
+    const filename=answers.title +".json"
+    fs.writeFile(filename,JSON.stringify(answers,null, '\t'), (err)=>{
+        err?console.error(err): console.log("success!")
+    })
+})
 // TODO: Create a function to initialize app
 function init() {}
 
