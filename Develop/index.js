@@ -1,11 +1,9 @@
-//https://github.com/mmeii/9-good-readme-generator
-//https://github.com/sylviaprabudy/readme-generator
-// TODO: Include packages needed for this application
+//inqurer library, fs, generateMarkdown
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-// TODO: Create an array of questions for user input
+//questions asked using inquirer in the command line
 const questions = [
   {
     type: "input",
@@ -73,22 +71,22 @@ const questions = [
   },
 ];
 
-// TODO: Create a function to write README file
+//writes to file
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, function (err) {
     if (err) {
       console.log(err);
     } else {
-      console.log("README file successfully created!");
+      console.log("created README file");
     }
   });
 }
-// TODO: Create a function to initialize app
+//uses inquirer to ask the questions and pass the answers
 function init() {
   inquirer.prompt(questions).then(function (data) {
     writeToFile("README.md", generateMarkdown(data));
   });
 }
 
-// Function call to initialize app
+// initializing function call
 init();
