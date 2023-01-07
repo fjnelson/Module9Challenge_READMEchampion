@@ -45,9 +45,9 @@ const questions = [
     name: "credits"
   },
   {
-    type: "input",
+    type: "list",
     message: "Pick your license.",
-    name: "license"
+    choices: ["APACHE2.0", "Boost1.0", "BSD2" ,"BSD3", "GPL3.0", "MIT", "None"]
   },
   {
     type: "input",
