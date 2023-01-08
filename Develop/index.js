@@ -24,18 +24,18 @@ const questions = [
   {
     type: "input",
     message:
-      "What is the project description?  What was the motivation, why did you build this project, whap problem does it solve? What did you learn?",
+      "What is the project description?  What was the motivation, why did you build this project, what problem does it solve? What did you learn?",
     name: "description",
   },
   {
     type: "input",
-    message: "What are the steps required to install your project?",
+    message: "What are the steps required to install your project? npm i is default",
     name: "installation",
     default: 'npm i'
   },
   {
     type: "input",
-    message: "Provide instructions for usage.  Add a screenshot.",
+    message: "Provide instructions for usage.  Add a screenshot if needed.",
     name: "usage"
   },
   {
