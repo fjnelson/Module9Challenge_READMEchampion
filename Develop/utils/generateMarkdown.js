@@ -1,7 +1,7 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if (license !== "None") {
-    return `![GitHub license](https://img.shields.io/badge/license-${license}-yellowgreen.svg)`
+    return `![GitHub license](https://img.shields.io/badge/license-${license}-lightgrey.svg)`
   }
   return ''
 }
@@ -17,7 +17,7 @@ function renderLicenseLink(license) {
 }
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if (license) {
+  if (license !== "None") {
     return (
       `## License
       ${license}
@@ -48,14 +48,14 @@ function generateMarkdown(data) {
   ${renderLicenseSection(data.license)}
   ## Contribution
   ${data.contribution}
-  ## Tests
+  ## Tests (Optional)
   ${data.test}
   ## Questions
-  * Checkout my [GitHub profile](https://github.com/${data.github})
+  * Message me on my [GitHub profile](https://github.com/${data.github})
   
-  * Email me with any quesitons [send an email](mailto:${data.email}). 
+  * Or email me with any quesitons [send an email](mailto:${data.email}). 
   ## License
-  Copyright (c) [${data.github}](https://github.com/${data.github}). All rights reserved.
+  Copyright (c) [${data.github}](https://github.com/${data.github}).
   
 ${data.license} license.
 `;
