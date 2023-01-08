@@ -17,12 +17,11 @@ function renderLicenseLink(license) {
 }
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if (license !== "None") {
+  if (license) {
     return (
       `## License
-      Copyright © ${license}.
+      ${license}
      `
-
     )
   }
   return ''
